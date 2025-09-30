@@ -1,0 +1,15 @@
+# Ignore generated or build files
+/build/** linguist-generated=true
+
+# Ignore test files from language stats
+/test/** linguist-detectable=false
+
+# Mark HTML files as not detectable (or generated, if applicable)
+web/*.html linguist-detectable=false
+web/*.css linguist-detectable=false
+
+# Make sure Dart files are counted
+lib/**/*.dart linguist-detectable=true
+
+# Optional: detect Dart in other folders
+*.dart linguist-detectable=true
