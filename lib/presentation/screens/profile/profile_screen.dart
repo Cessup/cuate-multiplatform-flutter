@@ -16,7 +16,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   String message = '';
   Map<String, String> dataMap = {};
 
-/*
+  /*
   void _onItemTap(String key, String value) {
     showCupertinoDialog(
       context: context,
@@ -49,8 +49,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     );
   }
 
-  Widget buildTextField(String label, TextEditingController controller,
-      {bool obscure = false, TextInputType keyboardType = TextInputType.text}) {
+  Widget buildTextField(
+    String label,
+    TextEditingController controller, {
+    bool obscure = false,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: CupertinoTextField(
@@ -104,108 +108,125 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         child: SingleChildScrollView(
           padding: EdgeInsets.zero,
           child: userAsync.when(
-              data: (authenticated) {
-                debugPrint('ProfileScreen: ${authenticated.user}');
-                if (authenticated.user != null) {
-                  Map<String, String> fetchedData = {
-                    'Name':
-                        '${authenticated.user!.givenName} ${authenticated.user!.familyName}',
-                    'Email': '${authenticated.user!.email} ',
-                    'Phone': '${authenticated.user!.phone} ',
-                    'Address': '${authenticated.user!.address} ',
-                    'Birthdate': '${authenticated.user!.birthdate} ',
-                    'Gender': '${authenticated.user!.gender} ',
-                  };
+            data: (authenticated) {
+              debugPrint('ProfileScreen: ${authenticated.user}');
+              if (authenticated.user != null) {
+                Map<String, String> fetchedData = {
+                  'Name':
+                      '${authenticated.user!.givenName} ${authenticated.user!.familyName}',
+                  'Email': '${authenticated.user!.email} ',
+                  'Phone': '${authenticated.user!.phone} ',
+                  'Address': '${authenticated.user!.address} ',
+                  'Birthdate': '${authenticated.user!.birthdate} ',
+                  'Gender': '${authenticated.user!.gender} ',
+                };
 
-                  dataMap = fetchedData;
-                }
+                dataMap = fetchedData;
+              }
 
-                return Column(children: [
+              return Column(
+                children: [
                   SafeArea(
-                      child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              child: Text('Contact Information',
-                                  style: baseStyle.copyWith(fontSize: 16)),
-                            ),
-                            SizedBox(
-                                child: CupertinoButton(
-                              minSize: 0,
-                              onPressed: () {
-                                // Your action here
-                              },
-                              child: Text(
-                                'Edit',
-                                textAlign: TextAlign.right,
-                                style: baseStyle.copyWith(
-                                  fontSize: 16,
-                                  color: CupertinoColors.activeBlue,
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                child: Text(
+                                  'Contact Information',
+                                  style: baseStyle.copyWith(fontSize: 16),
                                 ),
                               ),
-                            )),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        SafeArea(
-                          child: ListView.separated(
-                            shrinkWrap: true,
-                            itemCount: dataMap.keys.toList().length,
-                            separatorBuilder: (_, __) => Container(
-                              margin: const EdgeInsets.symmetric(
-                                  vertical: 2, horizontal: 10),
-                              height: 1,
-                              color: CupertinoColors.transparent,
-                            ),
-                            itemBuilder: (context, index) {
-                              final keys = dataMap.keys.toList();
-                              final key = keys[index];
-                              final value = dataMap[key]!;
+                              SizedBox(
+                                child: CupertinoButton(
+                                  onPressed: () {
+                                    // Your action here
+                                  },
+                                  child: Text(
+                                    'Edit',
+                                    textAlign: TextAlign.right,
+                                    style: baseStyle.copyWith(
+                                      fontSize: 16,
+                                      color: CupertinoColors.activeBlue,
+                                    ),
+                                  ),
+                                  minimumSize: Size(0, 0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          SafeArea(
+                            child: ListView.separated(
+                              shrinkWrap: true,
+                              itemCount: dataMap.keys.toList().length,
+                              separatorBuilder: (_, __) => Container(
+                                margin: const EdgeInsets.symmetric(
+                                  vertical: 2,
+                                  horizontal: 10,
+                                ),
+                                height: 1,
+                                color: CupertinoColors.transparent,
+                              ),
+                              itemBuilder: (context, index) {
+                                final keys = dataMap.keys.toList();
+                                final key = keys[index];
+                                final value = dataMap[key]!;
 
-                              return GestureDetector(
-                                //onTap: () => _onItemTap(key, value),
-                                child: Container(
-                                  alignment: Alignment.centerLeft,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(children: [
-                                        Text('$key:  ',
-                                            style: baseStyle.copyWith(
+                                return GestureDetector(
+                                  //onTap: () => _onItemTap(key, value),
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '$key:  ',
+                                              style: baseStyle.copyWith(
                                                 fontSize: 16,
                                                 color:
                                                     CupertinoColors.systemGrey,
-                                                fontWeight: FontWeight.bold)),
-                                        Text(value,
-                                            style: baseStyle.copyWith(
-                                                fontSize: 16)),
-                                      ]),
-                                      SizedBox(height: 4),
-                                    ],
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                              value,
+                                              style: baseStyle.copyWith(
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 4),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 32),
-                        Text(message),
-                        const SizedBox(height: 40),
-                      ],
+                          const SizedBox(height: 32),
+                          Text(message),
+                          const SizedBox(height: 40),
+                        ],
+                      ),
                     ),
-                  )),
-                ]);
-              },
-              loading: () => const CupertinoActivityIndicator(),
-              error: (error, _) {
-                return Text((error as AuthError).message);
-              }),
+                  ),
+                ],
+              );
+            },
+            loading: () => const CupertinoActivityIndicator(),
+            error: (error, _) {
+              return Text((error as AuthError).message);
+            },
+          ),
         ),
       ),
     );

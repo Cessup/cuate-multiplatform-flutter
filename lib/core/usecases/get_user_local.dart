@@ -1,5 +1,5 @@
-import 'package:omega/core/entities/user.dart';
-import 'package:omega/core/usecases/usercase.dart';
+import 'package:cuateapp/core/entities/user.dart';
+import 'package:cuateapp/core/usecases/usercase.dart';
 import '../../domain/repositories/user_repository.dart';
 import 'no_params.dart';
 

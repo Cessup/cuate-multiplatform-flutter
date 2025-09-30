@@ -25,8 +25,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     // Handle logout logic
   }
 
-  Widget buildTextField(String label, TextEditingController controller,
-      {bool obscure = false, TextInputType keyboardType = TextInputType.text}) {
+  Widget buildTextField(
+    String label,
+    TextEditingController controller, {
+    bool obscure = false,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: CupertinoTextField(
@@ -58,38 +62,43 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           child: Column(
             children: [
               const SizedBox(height: 10),
-              Column(children: [
-                Text('UserName', style: baseStyle.copyWith(fontSize: 20)),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  height: 1,
-                  color: CupertinoColors.systemGrey4, // Light gray line
-                ),
-                Text('Full Name', style: baseStyle.copyWith(fontSize: 16)),
-              ]),
+              Column(
+                children: [
+                  Text('UserName', style: baseStyle.copyWith(fontSize: 20)),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    height: 1,
+                    color: CupertinoColors.systemGrey4, // Light gray line
+                  ),
+                  Text('Full Name', style: baseStyle.copyWith(fontSize: 16)),
+                ],
+              ),
               const SizedBox(height: 20),
               Row(
                 children: [
                   SizedBox(
                     width: 220,
-                    child: Text('Contact Information',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Contact Information',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
-                      child: CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    minSize: 0,
-                    onPressed: () {
-                      // Your action here
-                    },
-                    child: Text(
-                      'Edit',
-                      style: TextStyle(
-                        color: CupertinoColors.activeBlue, // iOS blue text
-                        fontSize: 16, // Optional
+                    child: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        // Your action here
+                      },
+                      child: Text(
+                        'Edit',
+                        style: TextStyle(
+                          color: CupertinoColors.activeBlue, // iOS blue text
+                          fontSize: 16, // Optional
+                        ),
                       ),
+                      minimumSize: Size(0, 0),
                     ),
-                  )),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -97,8 +106,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: 120,
-                    child: Text('Email',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Email',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
                     child: CupertinoTextField(
@@ -113,8 +124,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: 120,
-                    child: Text('Phone',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Phone',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
                     child: CupertinoTextField(
@@ -129,8 +142,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: 120,
-                    child: Text('Family Name',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Family Name',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
                     child: CupertinoTextField(
@@ -145,8 +160,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: 120,
-                    child: Text('Given Name',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Given Name',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
                     child: CupertinoTextField(
@@ -161,8 +178,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: 120,
-                    child: Text('Birthdate',
-                        style: CupertinoTheme.of(context).textTheme.textStyle),
+                    child: Text(
+                      'Birthdate',
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
+                    ),
                   ),
                   Expanded(
                     child: CupertinoTextField(
@@ -201,7 +220,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 40)
+              SizedBox(height: 40),
             ],
           ),
         ),

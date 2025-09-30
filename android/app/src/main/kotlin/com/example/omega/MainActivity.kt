@@ -1,4 +1,4 @@
-package com.example.omega
+package com.example.cuateapp
 
 import io.flutter.embedding.android.FlutterActivity
 

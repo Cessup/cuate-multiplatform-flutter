@@ -1,4 +1,4 @@
-import 'package:omega/core/usecases/usercase.dart';
+import 'package:cuateapp/core/usecases/usercase.dart';
 import 'package:equatable/equatable.dart';
 import '../../../domain/repositories/auth_repository.dart';
 import '../../../presentation/notifier/session/auth_state.dart';
@@ -13,7 +13,10 @@ class ResetPasswordConfirm
   Future<AuthReset> call(ResetPasswordConfirmParams params) async {
     try {
       final result = await repository.resetPasswordConfirm(
-          params.email, params.code, params.newPassword);
+        params.email,
+        params.code,
+        params.newPassword,
+      );
       return AuthReset(result);
     } catch (e) {
       rethrow;

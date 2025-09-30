@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:omega/core/usecases/session/sign_in.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:cuateapp/core/usecases/session/sign_in.dart';
 import 'auth_state.dart';
 
 class SignInNotifier extends StateNotifier<AsyncValue<Authenticated>> {

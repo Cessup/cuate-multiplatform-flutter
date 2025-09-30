@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../../core/usecases/profile/GetCurrentUser.dart';
 import '../../core/usecases/get_user_local.dart';
 import '../../core/usecases/session/reset_password.dart';
@@ -84,28 +85,30 @@ final getCurrentUserProvider = Provider<GetCurrentUser>((ref) {
 //Notifier
 final signInNotifier =
     StateNotifierProvider<SignInNotifier, AsyncValue<Authenticated>>((ref) {
-  final signIn = ref.watch(signInProvider);
-  return SignInNotifier(signIn: signIn);
-});
+      final signIn = ref.watch(signInProvider);
+      return SignInNotifier(signIn: signIn);
+    });
 
 final profileProvider =
     StateNotifierProvider<ProfileNotifier, AsyncValue<Authenticated>>((ref) {
-  final getCurrentUser = ref.watch(getUserProvider);
-  final signOut = ref.watch(signOutProvider);
-  return ProfileNotifier(getCurrentUser: getCurrentUser, signOut: signOut);
-});
+      final getCurrentUser = ref.watch(getUserProvider);
+      final signOut = ref.watch(signOutProvider);
+      return ProfileNotifier(getCurrentUser: getCurrentUser, signOut: signOut);
+    });
 
 final resetPasswordNotifier =
     StateNotifierProvider<ForgotPasswordNotifier, AsyncValue<AuthReset>>((ref) {
-  final resetPassword = ref.watch(resetPasswordProvider);
-  final resetPasswordConfirm = ref.watch(resetPasswordConfirmProvider);
-  return ForgotPasswordNotifier(
-      resetPassword: resetPassword, resetPasswordConfirm: resetPasswordConfirm);
-});
+      final resetPassword = ref.watch(resetPasswordProvider);
+      final resetPasswordConfirm = ref.watch(resetPasswordConfirmProvider);
+      return ForgotPasswordNotifier(
+        resetPassword: resetPassword,
+        resetPasswordConfirm: resetPasswordConfirm,
+      );
+    });
 
 final signUpNotifier =
     StateNotifierProvider<SignUpNotifier, AsyncValue<Authenticated>>((ref) {
-  final signUp = ref.watch(signUpUseCaseProvider);
-  final signUpConfirm = ref.watch(signUpConfirmProvider);
-  return SignUpNotifier(signUp: signUp, signUpConfirm: signUpConfirm);
-});
+      final signUp = ref.watch(signUpUseCaseProvider);
+      final signUpConfirm = ref.watch(signUpConfirmProvider);
+      return SignUpNotifier(signUp: signUp, signUpConfirm: signUpConfirm);
+    });

@@ -3,21 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
-import 'package:omega/presentation/screens/global_loading_overlay.dart';
+import 'package:cuateapp/presentation/screens/global_loading_overlay.dart';
 import 'presentation/router/router.dart';
 import 'amplifyconfiguration.dart';
 
 void main() {
-  runApp(ProviderScope(child: OmegaApp()));
+  runApp(ProviderScope(child: cuateappApp()));
 }
 
-class OmegaApp extends StatefulWidget {
+class cuateappApp extends StatefulWidget {
   @override
   // ignore: library_private_types_in_public_api
-  _OmegaState createState() => _OmegaState();
+  _cuateappState createState() => _cuateappState();
 }
 
-class _OmegaState extends State<OmegaApp> {
+class _cuateappState extends State<cuateappApp> {
   @override
   void initState() {
     super.initState();

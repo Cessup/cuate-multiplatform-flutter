@@ -1,6 +1,6 @@
 {
-    "name": "omega",
-    "short_name": "omega",
+    "name": "cuateapp",
+    "short_name": "cuateapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

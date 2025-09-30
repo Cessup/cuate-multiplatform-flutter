@@ -172,8 +172,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       return dir.path;
     }
 
-    web.window.sessionStorage?.setItem("tempKey", "value");
-final value = web.window.sessionStorage.getItem("tempKey");
+    web.window.sessionStorage.setItem("tempKey", "value");
+    final value = web.window.sessionStorage.getItem("tempKey");
   }
 
   void _showDialog(String title, String message) {

@@ -1,4 +1,4 @@
-import 'package:omega/core/usecases/usercase.dart';
+import 'package:cuateapp/core/usecases/usercase.dart';
 import 'package:equatable/equatable.dart';
 import '../../../domain/repositories/auth_repository.dart';
 import '../../../presentation/notifier/session/auth_state.dart';

@@ -34,7 +34,7 @@ const amplifyconfig = '''{
   "storage": {
     "plugins": {
       "awsS3StoragePlugin": {
-        "bucket": "omega-storage",
+        "bucket": "cuateapp-storage",
         "region": "mx-central-1",
         "defaultAccessLevel": "guest"
       }

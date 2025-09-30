@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../../../core/usecases/no_params.dart';
 import '../../../core/usecases/profile/GetCurrentUser.dart';
 import '../../../core/usecases/session/sign_out.dart';
@@ -10,7 +11,7 @@ class ProfileNotifier extends StateNotifier<AsyncValue<Authenticated>> {
   late final SignOut signOut;
 
   ProfileNotifier({required this.getCurrentUser, required this.signOut})
-      : super(const AsyncValue.loading()) {
+    : super(const AsyncValue.loading()) {
     getUserProfile();
   }
 

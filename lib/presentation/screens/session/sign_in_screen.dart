@@ -71,12 +71,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           child: Column(
             children: [
               const SizedBox(height: 40),
-              Text('iCONDOMINIUM',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 30,
-                    fontWeight: FontWeight.w400,
-                  )),
+              Text(
+                'Cuate app',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontSize: 30,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
               const SizedBox(height: 80),
               CupertinoTextField(
                 controller: _emailController,
@@ -89,14 +91,17 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 obscureText: true,
               ),
               const SizedBox(height: 10),
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                CupertinoButton(
-                  onPressed: () {
-                    context.push('/forgot_password');
-                  },
-                  child: const Text('Forgot Password'),
-                ),
-              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CupertinoButton(
+                    onPressed: () {
+                      context.push('/forgot_password');
+                    },
+                    child: const Text('Forgot Password'),
+                  ),
+                ],
+              ),
               const SizedBox(height: 40),
               SizedBox(
                 width: double.infinity,
@@ -110,21 +115,23 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 ),
               ),
               SizedBox(height: 40),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(
-                  'Do not have an account?',
-                  style: CupertinoTheme.of(context)
-                      .textTheme
-                      .textStyle
-                      .copyWith(fontSize: 16),
-                ),
-                CupertinoButton(
-                  onPressed: () {
-                    context.push('/sign_up');
-                  },
-                  child: const Text('Sign Up'),
-                ),
-              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Do not have an account?',
+                    style: CupertinoTheme.of(
+                      context,
+                    ).textTheme.textStyle.copyWith(fontSize: 16),
+                  ),
+                  CupertinoButton(
+                    onPressed: () {
+                      context.push('/sign_up');
+                    },
+                    child: const Text('Sign Up'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
